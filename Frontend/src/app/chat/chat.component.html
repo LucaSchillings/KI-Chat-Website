@@ -1,0 +1,15 @@
+<!-- chat.component.html -->
+<div class="chatlogs" id="chatlogs">
+  <!-- Chatlogs werden hier dynamisch hinzugefügt -->
+  <div class="chat" *ngFor="let message of messages" [ngClass]="message.user.name === 'You' ? 'self' : 'friend'">
+    <div class="user-photo">
+      <img [src]="message.user.photo">
+    </div>
+    <p class="chat-message">{{message.text}}</p>
+  </div>
+</div>
+
+<div class="chat-form">
+  <textarea id="messageInput" [(ngModel)]="messageText"></textarea>
+  <button (click)="sendMessage()">Send</button>
+</div>
